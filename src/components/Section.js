@@ -64,7 +64,7 @@ class Section extends React.Component{
                 {
                     this.state.ventanaPago
                     ?
-                    <Pago atrasVentanaPago={this.atrasVentanaPago}></Pago>
+                    <Pago atrasVentanaPago={this.atrasVentanaPago} eCerrarVentana={this.eCerrarVentana}></Pago>
                     :
                     <div></div>
                 }

@@ -19,7 +19,7 @@
 }
 
 .divCaracteristicas{
-    width: 45%;
+    width: 47%;
     height: 550px;
     margin-top:10em;
     margin-left: 3%;
@@ -54,12 +54,21 @@
 }
 
 .divBoton p{
-    width: 40%;
+    width: 45%;
     height: 50px;
     font-size: 30px;
     margin-top: 2em;
-    margin-left: 10%;
+    margin-left: 5%;
     float: left;
+}
+
+.divBoton input[type='number']{
+    width: 50%;
+    margin-left: 25%;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    height: 50px;
 }
 
 .bComprar{

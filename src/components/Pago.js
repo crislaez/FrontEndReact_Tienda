@@ -3,14 +3,52 @@ import React from 'react'
 import '../css/Pago.css'
 
 class Pago extends React.Component{
+
+    _isMounted = false;
     
     constructor(props){
         super(props)
         this.state = 
             {
                 nombreTargeta:'',
-                numeroTargeta:''
+                numeroTargeta:'',
+                cantidad:'',
+                precio:''
             }
+    }
+
+    componentDidMount(){
+        this._isMounted = true;
+        this.setState({cantidad:parseInt(localStorage.getItem('cantidad'))})
+        this.setState({precio:parseInt(localStorage.getItem('precio'))})
+    }
+
+    componentWillUnmount(){
+        this._isMounted = false;
+        localStorage.removeItem('cantidad')
+        // localStorage.removeItem('precio')
+    }
+
+    handleSubmit = (event) => {
+
+        event.preventDefault();
+
+        if(!this.state.nombreTargeta || !/[A-Za-z]+$/.test(this.state.nombreTargeta)){
+            alert('Rellene el nombre de la targeta correctamente')
+        }
+        else if(!this.state.numeroTargeta || !/^\d{8}$/.test(this.state.numeroTargeta)){
+            alert('Rellene el numero de la targeta correctamente')
+        }
+        else{
+            console.log(this.state.nombreTargeta)
+            console.log(this.state.numeroTargeta)
+            alert('Gracias')
+            const atrasVentanaPago = this.props.atrasVentanaPago
+            atrasVentanaPago()
+            // const eCerrarVentana = this.props.eCerrarVentana;
+            // eCerrarVentana();
+        }
+        
     }
 
     render(){
@@ -22,6 +60,11 @@ class Pago extends React.Component{
                     </div>
                     <div className='divBotonPago'>
                         <button onClick={this.props.atrasVentanaPago}>X</button>
+                    </div>
+
+                    <div className='divCantidad'>
+                            <p><strong>Cantidad:</strong> {this.state.cantidad}</p>
+                            <p><strong>Precio:</strong> {this.state.cantidad*this.state.precio}€</p>
                     </div>
 
                     <form className='formPago' onSubmit={this.handleSubmit} action='' method=''>

@@ -8,15 +8,22 @@ class Contenido extends React.Component{
     
     constructor(props){
         super(props)
+        this.state = 
+            {
+                cantidad:'1'
+            }
     }
 
     componentDidMount(){
         this._isMounted = true;
         console.log(this.props.objeto)
+        localStorage.setItem('precio',this.props.objeto.precio)
+        localStorage.setItem('cantidad','1')
     }
 
     componentWillUnmount(){
         this._isMounted = false;
+        localStorage.removeItem('precio')
     }
 
     handleClickComprar = () => {
@@ -26,6 +33,11 @@ class Contenido extends React.Component{
         .then(response => {
 
         })
+    }
+    
+    guardarCantidad = (params) => {
+        this.setState({cantidad:params.target.value})
+        localStorage.setItem('cantidad',this.state.cantidad)
     }
 
     render(){
@@ -41,8 +53,9 @@ class Contenido extends React.Component{
                         <h3>{this.props.objeto.nombre.toUpperCase()}</h3>
                         <p><strong>MARCA:</strong> {this.props.objeto.marca}</p>
                         <p><strong>TALLA:</strong> {this.props.objeto.talla}</p>
-                        <p><strong>UNIDADES:</strong> {this.props.objeto.cantidad}</p>
+                        <p><strong>DISPONIBLES:</strong> {this.props.objeto.cantidad}</p>
                         <p><strong>PRECIO:</strong> {this.props.objeto.precio}€</p>
+                        <input type='number' value={this.state.cantidad} min='1' max={this.props.objeto.cantidad} onChange={this.guardarCantidad}></input>
                         <input className='bComprar' type='button' onClick={this.props.mVentanaPago} value='Comprar'></input>
                     </div>
                 </div>

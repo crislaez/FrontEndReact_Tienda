@@ -18,6 +18,8 @@ class VerTodo extends React.Component{
     componentDidMount(){
         //
         this._isMounted = true;
+        localStorage.removeItem('cantidad')
+        localStorage.removeItem('precio')
         let aux = [];
 
         fetch('http://localhost:3001/api/allProduct',{method:'GET'})
