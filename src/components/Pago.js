@@ -12,21 +12,19 @@ class Pago extends React.Component{
             {
                 nombreTargeta:'',
                 numeroTargeta:'',
-                cantidad:'',
+                cantidadEscogida:'',
                 precio:''
             }
     }
 
     componentDidMount(){
         this._isMounted = true;
-        this.setState({cantidad:parseInt(localStorage.getItem('cantidad'))})
+        this.setState({cantidadEscogida:parseInt(localStorage.getItem('cantidadEscogida'))})
         this.setState({precio:parseInt(localStorage.getItem('precio'))})
     }
 
     componentWillUnmount(){
         this._isMounted = false;
-        localStorage.removeItem('cantidad')
-        // localStorage.removeItem('precio')
     }
 
     handleSubmit = (event) => {
@@ -42,11 +40,24 @@ class Pago extends React.Component{
         else{
             console.log(this.state.nombreTargeta)
             console.log(this.state.numeroTargeta)
-            alert('Gracias')
+            let cantidadTotal = parseInt(localStorage.getItem('cantidad')) - parseInt(localStorage.getItem('cantidadEscogida'))
+            console.log(cantidadTotal)
+            let data = new URLSearchParams('cantidad='+cantidadTotal)
+
+            fetch('http://localhost:3001/api/updateProduct/'+localStorage.getItem('key'),{method:'PUT',body:data})
+            .then(data => data.json())
+            .then(response => {
+                console.log(response)
+            })
+            alert('Gracias')           
+
+            // localStorage.removeItem('precio')
+            // localStorage.removeItem('cantidad')
+            // localStorage.removeItem('key')
+            // localStorage.removeItem('cant')
+
             const atrasVentanaPago = this.props.atrasVentanaPago
             atrasVentanaPago()
-            // const eCerrarVentana = this.props.eCerrarVentana;
-            // eCerrarVentana();
         }
         
     }
@@ -63,8 +74,8 @@ class Pago extends React.Component{
                     </div>
 
                     <div className='divCantidad'>
-                            <p><strong>Cantidad:</strong> {this.state.cantidad}</p>
-                            <p><strong>Precio:</strong> {this.state.cantidad*this.state.precio}€</p>
+                            <p><strong>Cantidad:</strong> {this.state.cantidadEscogida}</p>
+                            <p><strong>Precio:</strong> {this.state.cantidadEscogida*this.state.precio}€</p>
                     </div>
 
                     <form className='formPago' onSubmit={this.handleSubmit} action='' method=''>

@@ -10,7 +10,7 @@ class Contenido extends React.Component{
         super(props)
         this.state = 
             {
-                cantidad:'1'
+                cantidadEscogida:'1'
             }
     }
 
@@ -18,12 +18,17 @@ class Contenido extends React.Component{
         this._isMounted = true;
         console.log(this.props.objeto)
         localStorage.setItem('precio',this.props.objeto.precio)
-        localStorage.setItem('cantidad','1')
+        localStorage.setItem('cantidadEscogida','1')
+        localStorage.setItem('key',this.props.objeto.codigo)
+        localStorage.setItem('cantidad',this.props.objeto.cantidad)
     }
 
     componentWillUnmount(){
         this._isMounted = false;
         localStorage.removeItem('precio')
+        localStorage.removeItem('cantidadEscogida')
+        localStorage.removeItem('key')
+        localStorage.removeItem('cantidad')
     }
 
     handleClickComprar = () => {
@@ -36,8 +41,8 @@ class Contenido extends React.Component{
     }
     
     guardarCantidad = (params) => {
-        this.setState({cantidad:params.target.value})
-        localStorage.setItem('cantidad',this.state.cantidad)
+        this.setState({cantidadEscogida:params.target.value})
+        localStorage.setItem('cantidadEscogida',this.state.cantidadEscogida)
     }
 
     render(){
@@ -55,7 +60,7 @@ class Contenido extends React.Component{
                         <p><strong>TALLA:</strong> {this.props.objeto.talla}</p>
                         <p><strong>DISPONIBLES:</strong> {this.props.objeto.cantidad}</p>
                         <p><strong>PRECIO:</strong> {this.props.objeto.precio}€</p>
-                        <input type='number' value={this.state.cantidad} min='1' max={this.props.objeto.cantidad} onChange={this.guardarCantidad}></input>
+                        <input type='number' value={this.state.cantidadEscogida} min='1' max={this.props.objeto.cantidad} onChange={this.guardarCantidad}></input>
                         <input className='bComprar' type='button' onClick={this.props.mVentanaPago} value='Comprar'></input>
                     </div>
                 </div>
