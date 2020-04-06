@@ -31,18 +31,18 @@ class Contenido extends React.Component{
         localStorage.removeItem('cantidad')
     }
 
-    handleClickComprar = () => {
+    // handleClickComprar = () => {
 
-        fetch('http://localhost:3001/api/allProduct',{methos:'PUT'})
-        .then(data => data.json())
-        .then(response => {
+    //     fetch('http://localhost:3001/api/allProduct',{methos:'PUT'})
+    //     .then(data => data.json())
+    //     .then(response => {
 
-        })
-    }
+    //     })
+    // }
     
     guardarCantidad = (params) => {
         this.setState({cantidadEscogida:params.target.value})
-        localStorage.setItem('cantidadEscogida',this.state.cantidadEscogida)
+        localStorage.setItem('cantidadEscogida',params.target.value)
     }
 
     render(){

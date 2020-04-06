@@ -10,7 +10,7 @@ class Categorias extends React.Component{
         super(props)
         this.state = 
             {
-                categoria:'',
+                categoria:'camiseta',
                 array:[]
             }
     }
@@ -25,8 +25,20 @@ class Categorias extends React.Component{
 
     handleSubmit = (event) => {
         event.preventDefault();
-
+        let aux = []
         console.log(this.state.categoria)
+        fetch('http://localhost:3001/api/allProduct',{'method':'GET'})
+        .then(data => data.json())
+        .then(response => {
+            // console.log(response)
+            response.producto.map((data, key) => {
+                if(data.categoria == this.state.categoria){
+                    aux.push(data)
+                    // console.log(aux)
+                }
+            })
+            this.setState({array:aux})
+        })
     }
 
     render(){
