@@ -17,3 +17,17 @@
     height: 930px;
     float: left;
 }
+.divNosotros{
+    width: 90%;
+    height: 800px;
+    margin-top:1em;
+    margin-left: 5%;
+    /* background: red; */
+    float: left;
+}
+
+.divNosotros p{
+    font-size: 20px;
+    margin-top: 1em;
+    text-align: justify;
+}

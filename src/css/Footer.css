@@ -4,3 +4,10 @@ footer{
     background: #2E3437;
     float: left;
 }
+
+footer a{
+    font-size: 40px;
+    margin-left: 5%;
+    margin-top: 0.5em;
+    float: left;
+}

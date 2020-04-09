@@ -1,6 +1,8 @@
 import React from 'react'
 //CSS
 import '../css/Categorias.css'
+//COMPONENTE
+import Articulo from './Articulo'
 
 class Categorias extends React.Component{
 
@@ -62,6 +64,18 @@ class Categorias extends React.Component{
                     </form>
 
                     <div className='divCategoria'>
+                        {
+                            this._isMounted && this.state.array
+                            ?
+                            this.state.array.map((data, key) => {
+                                return(
+                                    <Articulo key={key} codigo={data._id} nombre={data.nombre} marca={data.marca} precio={data.precio} cantidad={data.cantidad} talla={data.talla} foto={data.foto} className='divProducto' click={this.props.eAbrirVentana}>
+                                    </Articulo>
+                                )
+                            })
+                            :
+                            <div></div>
+                        }
                     </div>
                 
                 </div>

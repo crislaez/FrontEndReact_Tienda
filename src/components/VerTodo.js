@@ -1,6 +1,8 @@
 import React from 'react'
 //CSS
 import '../css/VerTodo.css'
+//COMPONENTE
+import Articulo from './Articulo'
 
 class VerTodo extends React.Component{
 
@@ -47,14 +49,8 @@ class VerTodo extends React.Component{
                         ?
                             this.state.array.map((data, key) => {
                                 return(
-                                    <div key={key} data-codigo={data._id} data-nombre={data.nombre} data-marca={data.marca} data-precio={data.precio} data-cantidad={data.cantidad} data-talla={data.talla} data-foto={data.foto} className='divProducto' onClick={this.props.eAbrirVentana}>
-                                        <img data-codigo={data._id} data-nombre={data.nombre} data-marca={data.marca} data-precio={data.precio} data-cantidad={data.cantidad} data-talla={data.talla} data-foto={data.foto} src={data.foto}></img>
-                                        <h3 data-codigo={data._id} data-nombre={data.nombre} data-marca={data.marca} data-precio={data.precio} data-cantidad={data.cantidad} data-talla={data.talla} data-foto={data.foto}>{data.nombre}</h3>
-                                        <p data-codigo={data._id} data-nombre={data.nombre} data-marca={data.marca} data-precio={data.precio} data-cantidad={data.cantidad} data-talla={data.talla} data-foto={data.foto}><strong data-codigo={data._id} data-nombre={data.nombre} data-marca={data.marca} data-precio={data.precio} data-cantidad={data.cantidad} data-talla={data.talla} data-foto={data.foto} >Marca:</strong> {data.marca}</p>
-                                        <p data-codigo={data._id} data-nombre={data.nombre} data-marca={data.marca} data-precio={data.precio} data-cantidad={data.cantidad} data-talla={data.talla} data-foto={data.foto}><strong data-codigo={data._id} data-nombre={data.nombre} data-marca={data.marca} data-precio={data.precio} data-cantidad={data.cantidad} data-talla={data.talla} data-foto={data.foto} >Precio:</strong> {data.precio}€</p>
-                                        <p data-codigo={data._id} data-nombre={data.nombre} data-marca={data.marca} data-precio={data.precio} data-cantidad={data.cantidad} data-talla={data.talla} data-foto={data.foto}><strong data-codigo={data._id} data-nombre={data.nombre} data-marca={data.marca} data-precio={data.precio} data-cantidad={data.cantidad} data-talla={data.talla} data-foto={data.foto} >Cantidad:</strong> {data.cantidad}</p>
-                                        <p data-codigo={data._id} data-nombre={data.nombre} data-marca={data.marca} data-precio={data.precio} data-cantidad={data.cantidad} data-talla={data.talla} data-foto={data.foto}><strong data-codigo={data._id} data-nombre={data.nombre} data-marca={data.marca} data-precio={data.precio} data-cantidad={data.cantidad} data-talla={data.talla} data-foto={data.foto} >Talla:</strong> {data.talla}</p>
-                                    </div>
+                                    <Articulo key={key} codigo={data._id} nombre={data.nombre} marca={data.marca} precio={data.precio} cantidad={data.cantidad} talla={data.talla} foto={data.foto} className='divProducto' click={this.props.eAbrirVentana}>
+                                    </Articulo>
                                 )
                             })
                         :

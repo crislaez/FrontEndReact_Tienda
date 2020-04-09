@@ -48,7 +48,7 @@ class Section extends React.Component{
                     :
                     this.props.pagina == 'categoria'
                     ?
-                    <Categoria></Categoria>
+                    <Categoria eAbrirVentana={this.props.eAbrirVentana}></Categoria>
                     :
                     this.props.pagina == 'sobrenosotros'
                     ?

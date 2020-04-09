@@ -1,25 +1,4 @@
-.divTitulo{
-    width: 100%;
-    height: 70px;
-  border-bottom: 1px solid grey;
-    box-shadow: 3px 0px 3px grey;
-    float: left;
-}
-
-.divTitulo h2{
-    text-align: center;
-    font-size: 40px;
-    margin-top: 10px;
-}
-
-.divContenedor{
-    width: 100%;
-    height: 930px;
-    overflow-y: scroll;
-    float: left;
-}
-
-/* .divProducto{
+.divProducto{
     width: 29%;
     height: 450px;
     margin: 10px;
@@ -52,4 +31,4 @@
 
 .divProducto:hover{
     transform: scale(1.02, 1.02);
-} */
+}
