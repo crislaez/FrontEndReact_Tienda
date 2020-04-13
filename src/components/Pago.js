@@ -57,7 +57,15 @@ class Pago extends React.Component{
             // localStorage.removeItem('cant')
 
             const atrasVentanaPago = this.props.atrasVentanaPago
+            const eCerrarVentana = this.props.eCerrarVentana
+            //cerramos el modal de pago
             atrasVentanaPago()
+
+            //y se cargara VerTodo
+            setTimeout(() => {
+                eCerrarVentana();
+                console.log('Perfecto')
+            },100)
         }
         
     }
