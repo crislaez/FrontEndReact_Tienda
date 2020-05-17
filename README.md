@@ -2,9 +2,9 @@
 
 LazShop es una tienda de ropa
 
-<img src="https://github.com/crislaez/Fornt_End_Senvix/blob/master/src/img/foto_proyecto.PNG" />
+<img src="https://github.com/crislaez/FrontEndReact_Tienda/blob/master/src/img/foto_proyecto.PNG" />
 <hr>
-<img src="https://github.com/crislaez/Fornt_End_Senvix/blob/master/src/img/foto_proyecto_2.PNG" />
+<img src="https://github.com/crislaez/FrontEndReact_Tienda/blob/master/src/img/foto_proyecto_2.PNG" />
 
  
 ### Donde pueden recibir ayuda los usuarios con el proyecto
