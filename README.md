@@ -1,3 +1,4 @@
+
 ## (front-end) LazShop
 
 LazShop es una tienda de ropa
@@ -11,8 +12,8 @@ LazShop es una tienda de ropa
  
 ### Donde pueden recibir ayuda los usuarios con el proyecto
  
-Escribiendome a mi correo crislaez30@gmail.com
+Escribiendome a mi correo crislaez30@gmail.com.
 
 ### Quien mantiene y construye el proyecto
 
-Yo mismo, y con muchisima ilusión
+Yo mismo, y con muchisima ilusión.
